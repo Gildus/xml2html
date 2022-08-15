@@ -13,6 +13,10 @@ $rootNamespace = $doc->documentElement->namespaceURI;
 $xpath = new DOMXPath($doc);
 $xpath->registerNamespace('xt', $rootNamespace);
 
-$templates = new \League\Plates\Engine('src/Views');
+$data = (new InvoiceDom($xpath))->parseDocument();
+header('Content-Type: application/json; charset=utf-8');
+echo json_encode($data);
 
-echo $templates->render('invoice', ['doc' => (new InvoiceDom($xpath))->parseDocument()]);
+//$templates = new \League\Plates\Engine('src/Views');
+
+//echo $templates->render('invoice', ['doc' => (new InvoiceDom($xpath))->parseDocument()]);
