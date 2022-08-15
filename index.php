@@ -4,7 +4,7 @@ use App\InvoiceDom;
 
 require_once 'vendor/autoload.php';
 
-$xml = file_get_contents('xml/FACTURAE001-31420115672232.XML');
+$xml = file_get_contents('xml/FILE.XML');
 
 $doc = new DOMDocument;
 $doc->loadxml($xml);
